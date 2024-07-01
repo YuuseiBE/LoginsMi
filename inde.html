@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operating Bot - サイトのタイトル</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); /* 背景画像のURLを指定 */
+    background-size: cover; /* 背景画像をカバーできるサイズに調整 */
+    background-position: center; /* 背景画像を中央に配置 */
+    background-repeat: no-repeat; /* 背景画像の繰り返しを無効化 */
+  }
+  .header {
+    background-color: #333; /* ヘッダーの背景色 */
+    color: #fff; /* ヘッダーのテキスト色 */
+    padding: 10px;
+    text-align: right;
+  }
+  .header a {
+    color: #fff; /* リンクの色 */
+    text-decoration: none; /* 下線を消す */
+    margin-left: 10px; /* ボタン間の余白 */
+    padding: 8px 12px; /* ボタンの内側の余白 */
+    border: 1px solid #fff; /* ボタンの枠線 */
+    border-radius: 4px; /* ボタンの角の丸み */
+  }
+  .header a:hover {
+    background-color: #555; /* ホバー時の背景色 */
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* 最初は非表示 */
+  }
+  .form-container h2 {
+    text-align: center;
+  }
+  .form-container input[type="text"],
+  .form-container input[type="password"],
+  .form-container input[type="email"],
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .form-container button,
+  .header button {
+    width: auto;
+    padding: 8px 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .form-container button:hover,
+  .header button:hover {
+    background-color: #555;
+  }
+
+  /* Discordマークのスタイル */
+  .discord-mark {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 24px; /* Discordマークの幅 */
+    height: 24px; /* Discordマークの高さ */
+  }
+
+  /* 左上に表示するタイトルのスタイル */
+  .site-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  /* リストスタイルをリセット */
+  ul {
+    list-style-type: none; /* リストのデフォルトスタイルを削除 */
+    padding: 0;
+  }
+
+  /* iframeのスタイル */
+  .discord-widget {
+    margin: 20px auto;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="site-title">Players Ospbtk Server Studios Yuusei community</div>
+
+  <header class="header">
+    <a href="#">ログイン</a>
+    <a href="#">サインアップ</a>
+    <a href="#" id="email-link">メールを送信</a>
+    <button onclick="downloadDiscordInstaller()">Discordをダウンロード</button>
+  </header>
+  
+  <div class="form-container" id="login-form">
+    <h2>ログイン</h2>
+    <form>
+      <input type="text" placeholder="ユーザー名" required>
+      <input type="password" placeholder="パスワード" required>
+      <button type="submit">ログイン</button>
+    </form>
+  </div>
+
+  <div class="form-container" id="signup-form">
+    <h2>サインアップ</h2>
+    <form>
+      <input type="text" placeholder="ユーザー名" required>
+      <input type="password" placeholder="パスワード" required>
+      <button type="submit">サインアップ</button>
+    </form>
+  </div>
+
+  <div class="form-container" id="email-form" style="display: none;">
+    <h2>メールを送信する</h2>
+    <form id="email-send-form">
+      <input type="text" placeholder="お名前" id="name" required>
+      <input type="email" placeholder="メールアドレス" id="email" required>
+      <textarea placeholder="メッセージ内容" id="message" rows="5" required></textarea>
+      <button type="submit">送信</button>
+    </form>
+  </div>
+
+  <div style="text-align: center; margin-top: 50px;">
+    <h1>Players Ospbtk Server Studios Yuusei</h1>
+    <p>🎉 皆さん、こんにちは！新しいDiscordサーバー「Players Ospbtk Server Studios Yuusei」へようこそ！</p>
+    <p>私たちのコミュニティ「Players Ospbtk Server Studios Yuusei」は、ゲーム、アニメ、テクノロジー、そしてさまざまな興味を共有する人々のための素晴らしい場所です！友達を作ったり、新しいことを学んだり、共有したりするのに最適な場所です。</p>
+    <h2>✨ 特徴 ✨</h2>
+    <ul>
+      <li>🎮 ゲームの最新ニュースやアップデートについてチャットしましょう！</li>
+      <li>📺 アニメやマンガのお気に入りのキャラクターについて語り合いましょう！</li>
+      <li>💻 テクノロジーに関する知識やアドバイスを共有しましょう！</li>
+      <li>🎵 音楽や映画、本など、さまざまな娯楽について話しましょう！</li>
+      <li>⁉️ 宣伝目的でもいい！</li>
+      <li>🎮 Minecraftでも遊べる！</li>
+      <li>G ルールもばっちり！！</li>
+      <li>❤ Minecraft、コミュニティでもなんでも気軽に話せる！！</li>
+      <li>🛠️ 仲間はみなやさしい！！</li>
+      <li>🔱 初心者歓迎！！仲間が教えてくれる！！</li>
+      <li>✝️ JAVA版統合版クロスプレイ対応！！</li>
+      <li>📞 みんなと一緒に楽しく通話！！配信も！</li>
+    </ul>
+    <p>そして何よりも、楽しさと友情を共有するための素晴らしいコミュニティがここにあります！参加して、私たちと一緒に素晴らしい時間を過ごしましょう！</p>
+    <p>参加したくなった？参加しよう！一緒に楽しみましょう！みなさまのご参加をお待ちしています！🚀</p>
+    <p>(この招待を受信すると、<a href="https://account.mojang.com/documents/minecraft_eula" target="_blank">MinecraftのEULA</a>と、<a href="https://discord.com/terms" target="_blank">Discord利用規約</a>に同意したことになります。)</p>
+  </div>
+
+  <div class="discord-widget">
+    <iframe src="https://discord.com/widget?id=1205844947064987668&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <script>
+    // ログイン・サインアップの切り替え
+    document.querySelector('.header a:nth-child(1)').addEventListener('click', function() {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('email-form').style.display = 'none';
+    });
+    document.querySelector('.header a:nth-child(2)').addEventListener('click', function() {
+      document.getElementById('signup-form').style.display = 'block';
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('email-form').style.display = 'none';
+    });
+
+    // メールフォームの表示切り替え
+    document.getElementById('email-link').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('email-form').style.display = 'block';
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('signup-form').style.display = 'none';
+    });
+
+    // Discordのインストーラーをダウンロード
+    function downloadDiscordInstaller() {
+      window.location.href = "path/to/your/DiscordSetup.exe"; // 直接DiscordSetup.exeをダウンロード
+    }
+
+    // メール送信成功時のアラート
+    document.getElementById('email-send-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // この部分に実際のメール送信処理を追加する必要があります（サーバーサイドで行います）。
+      alert('メールを送信しました！');
+    });
+  </script>
+</body>
+</html>
